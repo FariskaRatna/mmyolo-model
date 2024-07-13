@@ -1,0 +1,33 @@
+{
+	"name": "MMYOLO MODEL",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/python:1-3.9-bookworm"
+	"build": {"dockerfile": "Dockerfile"},
+
+	"runArgs": [
+		"--gpus=all",
+		"--shm-size=8g",
+		"--network=host"
+	],
+
+	"mounts": [
+		"source=/home/msib/dataset-ppe-github/chinstrap/chinstrap-all/,target=/workspaces/mmyolo-model/data/chinstrap,type=bind,consistency=cached",
+		"source=/home/msib/Documents/fariska/datasets/dota_dataset/,target=/workspaces/mmyolo-model/data/DOTAv1,type=bind,consistency=cached",
+		"source=/home/msib/Documents/fariska/model/yolo-obb/datasets/DOTAv1/images/test/,target=/workspaces/mmyolo-model/data/DOTAv1/test,type=bind,consistency=cached"
+	]
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
