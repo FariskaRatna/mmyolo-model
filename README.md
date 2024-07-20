@@ -15,7 +15,13 @@ We provide the following YOLO models that are trained on different datasets.
 
 ## Getting Started
 
-Please provide documentation.
+The first thing that should do is install MMYOLO and depedency libraries using the following commands.
+
+```
+pip install -U openmim
+mim install -r requirements/mminstall.txt
+mim install -v -e
+```
 
 ## Training
 
