@@ -25,8 +25,27 @@ mim install -v -e
 
 ## Training
 
-Please provide documentation.
+You can training the model using the following commands.
+
+```
+python tools/train.py {config_models}
+```
+
+For `{config_models}` we can build the config file inside the config folder and choose the YOLO model that we want to use for the training process. For example,if we try to train the WIKA-UNJANI dataset using YOLOX, we create a `yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py` config file in the `configs\yolox` folder and write down the configuration of the model. So, the command to training the model is.
+
+```
+python tools/train.py configs/yolox/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py
+```
+
+After running the command, `work_dirs/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika` folder will be automatically generated, the checkpoint file and the training config file will be saved in this folder.
+
+### Training is resumed after interruption
+
+If you stop training, you can add `--resume` to the end of the training command and the program will aoutomatically resume training with the latest weights file from `work_dirs`.
+
+```
+python tools/train.py configs/yolox/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py --resume
+```
 
 ## Evaluation
 
-Please provide documentation.
