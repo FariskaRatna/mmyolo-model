@@ -31,7 +31,7 @@ You can training the model using the following commands.
 python tools/train.py {config_models}
 ```
 
-For `{config_models}` we can build the config file inside the config folder and choose the YOLO model that we want to use for the training process. For example,if we try to train the WIKA-UNJANI dataset using YOLOX, we create a `yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py` config file in the `configs\yolox` folder and write down the configuration of the model. So, the command to training the model is.
+For `{config_models}` you can build the config file inside the config folder and choose the YOLO model that you want to use for the training process. For example,if you try to train the WIKA-UNJANI dataset using YOLOX, you create a `yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py` config file in the `configs\yolox` folder and write down the configuration of the model. So, the command to training the model is.
 
 ```
 python tools/train.py configs/yolox/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py
@@ -47,5 +47,14 @@ If you stop training, you can add `--resume` to the end of the training command 
 python tools/train.py configs/yolox/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py --resume
 ```
 
-## Evaluation
+## Testing
 
+For the testing process of the YOLO model, use the following commands.
+
+```
+python tools/test.py configs/yolox/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika.py \
+                     work_dirs/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika/epoch_15.pth \
+                     --show-dir show_results
+```
+
+After running the above test command, you can not only get the AP performance printed in **Training** section. you can also automatically save the result images to the `work_dirs/yolox_s_fast_1xb12-40e-rtmdet-hyp_wika/{timestamp}/show_results` folder.
